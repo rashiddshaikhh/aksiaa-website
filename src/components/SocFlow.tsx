@@ -45,20 +45,20 @@ function Node({
       <div
         className={`relative flex items-center justify-center rounded-xl shadow-md ring-1 transition-transform duration-300 group-hover:-translate-y-0.5 sm:rounded-2xl ${
           isHub
-            ? "h-12 w-12 ring-cyan-deep/40 sm:h-16 sm:w-16"
+            ? "h-12 w-12 ring-royal/40 sm:h-16 sm:w-16"
             : "h-11 w-11 ring-transparent sm:h-14 sm:w-14"
-        } ${tone === "accent" ? "bg-white text-cyan-deep ring-cyan-deep/30" : "text-white"}`}
+        } ${tone === "accent" ? "bg-white text-royal ring-royal/30" : "text-white"}`}
         style={
           tone !== "accent"
             ? {
                 background: isHub
-                  ? "linear-gradient(135deg, var(--cyan-deep), var(--navy) 130%)"
+                  ? "linear-gradient(135deg, var(--royal), var(--navy) 130%)"
                   : "linear-gradient(135deg, var(--royal), var(--navy) 140%)",
               }
             : undefined
         }
       >
-        {isHub && <span className="absolute -inset-1.5 -z-10 rounded-2xl bg-cyan-deep/20 blur-md" />}
+        {isHub && <span className="absolute -inset-1.5 -z-10 rounded-2xl bg-royal/20 blur-md" />}
         <Icon size={isHub ? 20 : 19} strokeWidth={1.75} className="sm:hidden" />
         <Icon size={isHub ? 28 : 24} strokeWidth={1.75} className="hidden sm:block" />
       </div>
@@ -73,7 +73,7 @@ function Node({
   );
 }
 
-/* ---------- animated "data actually moves this way" arrow ---------- */
+/* ---------- animated flow arrow ---------- */
 
 function FlowArrow({ d, delay = 0 }: { d: string; delay?: number }) {
   return (
@@ -101,7 +101,7 @@ export default function SocFlow() {
           <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 h-full w-full overflow-visible">
             <defs>
               <linearGradient id="soc-grad" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stopColor="var(--cyan-deep)" />
+                <stop offset="0%" stopColor="var(--royal)" />
                 <stop offset="100%" stopColor="var(--navy)" />
               </linearGradient>
               <marker
@@ -117,7 +117,6 @@ export default function SocFlow() {
               </marker>
             </defs>
 
-            {/* flow — the direction data actually moves */}
             <FlowArrow d="M 47 13 Q 33 25 19 40" delay={0.05} />
             <FlowArrow d="M 21 44 Q 50 53 79 44" delay={0.2} />
             <FlowArrow d="M 81 40 Q 65 22 53 13" delay={0.35} />
@@ -147,13 +146,13 @@ export default function SocFlow() {
           </div>
           <ul className="mt-3 space-y-2 text-sm text-ink/65">
             <li className="flex items-center gap-2">
-              <Database size={15} className="shrink-0 text-cyan-deep" /> Collect
+              <Database size={15} className="shrink-0 text-royal" /> Collect
             </li>
             <li className="flex items-center gap-2">
-              <SearchCheck size={15} className="shrink-0 text-cyan-deep" /> Index
+              <SearchCheck size={15} className="shrink-0 text-royal" /> Index
             </li>
             <li className="flex items-center gap-2">
-              <BarChart3 size={15} className="shrink-0 text-cyan-deep" /> Analyze
+              <BarChart3 size={15} className="shrink-0 text-royal" /> Analyze
             </li>
           </ul>
         </div>
@@ -161,7 +160,7 @@ export default function SocFlow() {
         <div className="rounded-2xl border border-navy/10 bg-white p-5 shadow-sm transition-shadow hover:shadow-md sm:text-right">
           <div
             className="mb-3 h-1 w-10 rounded-full sm:ml-auto"
-            style={{ background: "linear-gradient(90deg, var(--cyan-deep), var(--royal))" }}
+            style={{ background: "linear-gradient(90deg, var(--royal), var(--navy))" }}
           />
           <div className="flex items-center gap-2.5 sm:flex-row-reverse">
             <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-navy/5 text-navy">
@@ -171,13 +170,13 @@ export default function SocFlow() {
           </div>
           <ul className="mt-3 space-y-2 text-sm text-ink/65">
             <li className="flex items-center gap-2 sm:flex-row-reverse">
-              <Radar size={15} className="shrink-0 text-cyan-deep" /> Investigate
+              <Radar size={15} className="shrink-0 text-royal" /> Investigate
             </li>
             <li className="flex items-center gap-2 sm:flex-row-reverse">
-              <Zap size={15} className="shrink-0 text-cyan-deep" /> Respond
+              <Zap size={15} className="shrink-0 text-royal" /> Respond
             </li>
             <li className="flex items-center gap-2 sm:flex-row-reverse">
-              <ListChecks size={15} className="shrink-0 text-cyan-deep" /> Run playbooks
+              <ListChecks size={15} className="shrink-0 text-royal" /> Run playbooks
             </li>
           </ul>
         </div>
