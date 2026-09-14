@@ -73,22 +73,6 @@ function Node({
   );
 }
 
-/* ---------- static "these are linked" line — no direction implied ---------- */
-
-function ConnectionLine({ d }: { d: string }) {
-  return (
-    <path
-      d={d}
-      fill="none"
-      stroke="var(--navy)"
-      strokeOpacity={0.16}
-      strokeWidth="0.5"
-      strokeDasharray="1.8 2.6"
-      strokeLinecap="round"
-    />
-  );
-}
-
 /* ---------- animated "data actually moves this way" arrow ---------- */
 
 function FlowArrow({ d, delay = 0 }: { d: string; delay?: number }) {
@@ -113,9 +97,6 @@ export default function SocFlow() {
     <div>
       {/* diagram card */}
       <div className="mx-auto mt-2 max-w-3xl rounded-3xl border border-navy/10 bg-white/70 p-5 shadow-sm sm:p-10">
-        {/* percentage-positioned nodes + a matching non-uniform-scaled SVG for lines.
-            Same topology at every breakpoint — only the canvas aspect ratio changes,
-            so the diamond stretches taller on phones and wider on desktop. */}
         <div className="relative mx-auto aspect-[4/5] w-full max-w-xs xs:max-w-sm sm:aspect-[16/9] sm:max-w-2xl">
           <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 h-full w-full overflow-visible">
             <defs>
@@ -135,13 +116,6 @@ export default function SocFlow() {
                 <path d="M0,0 L3.4,1.7 L0,3.4 Z" fill="var(--navy)" />
               </marker>
             </defs>
-
-            {/* connections — who is linked to whom */}
-            <ConnectionLine d="M 50 11 L 15 43" />
-            <ConnectionLine d="M 50 11 L 85 43" />
-            <ConnectionLine d="M 19 45 L 81 45" />
-            <ConnectionLine d="M 17 47 L 47 78" />
-            <ConnectionLine d="M 83 47 L 53 78" />
 
             {/* flow — the direction data actually moves */}
             <FlowArrow d="M 47 13 Q 33 25 19 40" delay={0.05} />
