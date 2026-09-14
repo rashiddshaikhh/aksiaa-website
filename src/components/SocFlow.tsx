@@ -52,8 +52,8 @@ export default function SocFlow() {
         <FlowCard icon={PlayCircle} title="SOAR" items={["Investigate", "Respond", "Run playbooks"]} align="right" />
       </div>
 
-      {/* converging connectors into SOC */}
-      <div className="relative mx-auto mt-2 h-16 max-w-2xl md:h-20">
+      {/* converging connectors into SOC — diagonal on desktop where cards sit in a row */}
+      <div className="relative mx-auto mt-2 hidden h-16 max-w-2xl md:block md:h-20">
         <svg
           viewBox="0 0 100 40"
           preserveAspectRatio="none"
@@ -90,6 +90,18 @@ export default function SocFlow() {
             </linearGradient>
           </defs>
         </svg>
+      </div>
+
+      {/* straight connector for mobile, where cards stack vertically */}
+      <div className="mx-auto flex h-10 w-px items-stretch justify-center md:hidden">
+        <motion.div
+          className="w-px"
+          style={{ background: "linear-gradient(180deg, var(--cyan-deep), var(--navy))" }}
+          initial={{ scaleY: 0 }}
+          whileInView={{ scaleY: 1 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        />
       </div>
 
       <motion.div
