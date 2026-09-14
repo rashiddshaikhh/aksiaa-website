@@ -39,14 +39,14 @@ function Node({
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.4, delay, ease: "easeOut" }}
-      className="absolute flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-1.5 sm:gap-2"
+      className="group absolute flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-1.5 sm:gap-2.5"
       style={{ left: `${x}%`, top: `${y}%` }}
     >
       <div
-        className={`relative flex items-center justify-center rounded-xl shadow-md ring-1 sm:rounded-2xl ${
+        className={`relative flex items-center justify-center rounded-xl shadow-md ring-1 transition-transform duration-300 group-hover:-translate-y-0.5 sm:rounded-2xl ${
           isHub
-            ? "h-12 w-12 sm:h-16 sm:w-16 ring-cyan-deep/40"
-            : "h-10 w-10 sm:h-14 sm:w-14 ring-transparent"
+            ? "h-12 w-12 ring-cyan-deep/40 sm:h-16 sm:w-16"
+            : "h-11 w-11 ring-transparent sm:h-14 sm:w-14"
         } ${tone === "accent" ? "bg-white text-cyan-deep ring-cyan-deep/30" : "text-white"}`}
         style={
           tone !== "accent"
@@ -58,10 +58,8 @@ function Node({
             : undefined
         }
       >
-        {isHub && (
-          <span className="absolute -inset-1 -z-10 rounded-2xl bg-cyan-deep/15 blur-md" />
-        )}
-        <Icon size={isHub ? 20 : 18} strokeWidth={1.75} className="sm:hidden" />
+        {isHub && <span className="absolute -inset-1.5 -z-10 rounded-2xl bg-cyan-deep/20 blur-md" />}
+        <Icon size={isHub ? 20 : 19} strokeWidth={1.75} className="sm:hidden" />
         <Icon size={isHub ? 28 : 24} strokeWidth={1.75} className="hidden sm:block" />
       </div>
       <p
@@ -75,7 +73,7 @@ function Node({
   );
 }
 
-/* ---------- static "these are linked" line (no direction) ---------- */
+/* ---------- static "these are linked" line — no direction implied ---------- */
 
 function ConnectionLine({ d }: { d: string }) {
   return (
@@ -83,15 +81,15 @@ function ConnectionLine({ d }: { d: string }) {
       d={d}
       fill="none"
       stroke="var(--navy)"
-      strokeOpacity={0.14}
-      strokeWidth="0.45"
-      strokeDasharray="1.6 2.4"
+      strokeOpacity={0.16}
+      strokeWidth="0.5"
+      strokeDasharray="1.8 2.6"
       strokeLinecap="round"
     />
   );
 }
 
-/* ---------- animated "data flows this way" arrow ---------- */
+/* ---------- animated "data actually moves this way" arrow ---------- */
 
 function FlowArrow({ d, delay = 0 }: { d: string; delay?: number }) {
   return (
@@ -99,13 +97,13 @@ function FlowArrow({ d, delay = 0 }: { d: string; delay?: number }) {
       d={d}
       fill="none"
       stroke="url(#soc-grad)"
-      strokeWidth="0.85"
+      strokeWidth="0.95"
       strokeLinecap="round"
       markerEnd="url(#soc-arrowhead)"
       initial={{ pathLength: 0, opacity: 0 }}
       whileInView={{ pathLength: 1, opacity: 1 }}
       viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.8, delay, ease: "easeOut" }}
+      transition={{ duration: 0.85, delay, ease: "easeOut" }}
     />
   );
 }
@@ -114,73 +112,77 @@ export default function SocFlow() {
   return (
     <div>
       <div className="mx-auto max-w-2xl text-center">
-        <p className="text-sm text-ink/55">
+        <p className="text-sm leading-relaxed text-ink/55 sm:text-[15px]">
           One detection loop, four moving parts: SIEM and SOAR trade evidence in real time, threat
-          intel primes both, and everything reports up into a single SOC.
+          intel primes both, and every outcome reports up into a single SOC.
         </p>
       </div>
 
       {/* legend */}
-      <div className="mt-4 flex items-center justify-center gap-5 text-[11px] text-ink/50 sm:text-xs">
+      <div className="mt-5 flex flex-col items-center justify-center gap-2 text-[11px] text-ink/50 sm:flex-row sm:gap-6 sm:text-xs">
         <span className="flex items-center gap-1.5">
-          <span className="h-px w-5 border-t border-dashed border-navy/30" />
+          <span className="h-px w-6 border-t border-dashed border-navy/35" />
           connected
         </span>
         <span className="flex items-center gap-1.5">
           <span
-            className="h-0.5 w-5 rounded-full"
+            className="h-0.5 w-6 rounded-full"
             style={{ background: "linear-gradient(90deg, var(--cyan-deep), var(--navy))" }}
           />
           data flow
         </span>
       </div>
 
-      {/* diagram: percentage-positioned nodes + a matching non-uniform-scaled SVG for lines.
-          Same topology at every breakpoint — nothing here depends on flex/grid reflow. */}
-      <div className="relative mx-auto mt-6 aspect-[5/4] w-full max-w-lg sm:aspect-[16/9] sm:max-w-2xl">
-        <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 h-full w-full overflow-visible">
-          <defs>
-            <linearGradient id="soc-grad" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stopColor="var(--cyan-deep)" />
-              <stop offset="100%" stopColor="var(--navy)" />
-            </linearGradient>
-            <marker
-              id="soc-arrowhead"
-              markerWidth="3.2"
-              markerHeight="3.2"
-              refX="2.6"
-              refY="1.6"
-              orient="auto-start-reverse"
-              markerUnits="strokeWidth"
-            >
-              <path d="M0,0 L3.2,1.6 L0,3.2 Z" fill="var(--navy)" />
-            </marker>
-          </defs>
+      {/* diagram card */}
+      <div className="mx-auto mt-6 max-w-3xl rounded-3xl border border-navy/10 bg-white/70 p-5 shadow-sm sm:p-10">
+        {/* percentage-positioned nodes + a matching non-uniform-scaled SVG for lines.
+            Same topology at every breakpoint — only the canvas aspect ratio changes,
+            so the diamond stretches taller on phones and wider on desktop. */}
+        <div className="relative mx-auto aspect-[4/5] w-full max-w-xs xs:max-w-sm sm:aspect-[16/9] sm:max-w-2xl">
+          <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 h-full w-full overflow-visible">
+            <defs>
+              <linearGradient id="soc-grad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stopColor="var(--cyan-deep)" />
+                <stop offset="100%" stopColor="var(--navy)" />
+              </linearGradient>
+              <marker
+                id="soc-arrowhead"
+                markerWidth="3.4"
+                markerHeight="3.4"
+                refX="2.7"
+                refY="1.7"
+                orient="auto-start-reverse"
+                markerUnits="strokeWidth"
+              >
+                <path d="M0,0 L3.4,1.7 L0,3.4 Z" fill="var(--navy)" />
+              </marker>
+            </defs>
 
-          {/* connections: who is linked to whom (SOC↔SIEM, SOC↔SOAR, SIEM↔SOAR, SIEM↔Threat intel, SOAR↔Threat intel) */}
-          <ConnectionLine d="M 50 11 L 16 42" />
-          <ConnectionLine d="M 50 11 L 84 42" />
-          <ConnectionLine d="M 20 44 L 80 44" />
-          <ConnectionLine d="M 18 46 L 47 77" />
-          <ConnectionLine d="M 82 46 L 53 77" />
+            {/* connections — who is linked to whom */}
+            <ConnectionLine d="M 50 11 L 15 43" />
+            <ConnectionLine d="M 50 11 L 85 43" />
+            <ConnectionLine d="M 19 45 L 81 45" />
+            <ConnectionLine d="M 17 47 L 47 78" />
+            <ConnectionLine d="M 83 47 L 53 78" />
 
-          {/* flow: the direction data actually moves */}
-          <FlowArrow d="M 47 13 Q 34 24 20 39" delay={0.05} />
-          <FlowArrow d="M 22 43 Q 50 52 78 43" delay={0.2} />
-          <FlowArrow d="M 80 39 Q 64 22 54 13" delay={0.35} />
-          <FlowArrow d="M 45 73 Q 30 58 19 47" delay={0.5} />
-          <FlowArrow d="M 55 73 Q 71 58 81 47" delay={0.6} />
-        </svg>
+            {/* flow — the direction data actually moves */}
+            <FlowArrow d="M 47 13 Q 33 25 19 40" delay={0.05} />
+            <FlowArrow d="M 21 44 Q 50 53 79 44" delay={0.2} />
+            <FlowArrow d="M 81 40 Q 65 22 53 13" delay={0.35} />
+            <FlowArrow d="M 45 74 Q 29 59 18 48" delay={0.5} />
+            <FlowArrow d="M 55 74 Q 72 59 82 48" delay={0.6} />
+          </svg>
 
-        <Node icon={ShieldCheck} label="SOC" x={50} y={9} tone="hub" delay={0.05} />
-        <Node icon={LayoutDashboard} label="SIEM" x={16} y={44} delay={0.15} />
-        <Node icon={PlayCircle} label="SOAR" x={84} y={44} delay={0.2} />
-        <Node icon={ScanEye} label="Threat intel" x={50} y={79} tone="accent" delay={0.4} />
+          <Node icon={ShieldCheck} label="SOC" x={50} y={9} tone="hub" delay={0.05} />
+          <Node icon={LayoutDashboard} label="SIEM" x={15} y={45} delay={0.15} />
+          <Node icon={PlayCircle} label="SOAR" x={85} y={45} delay={0.2} />
+          <Node icon={ScanEye} label="Threat intel" x={50} y={80} tone="accent" delay={0.4} />
+        </div>
       </div>
 
       {/* what each node does */}
-      <div className="mx-auto mt-10 grid max-w-3xl gap-5 sm:grid-cols-2">
-        <div className="group rounded-2xl border border-navy/10 bg-white p-5 shadow-sm transition-shadow hover:shadow-md">
+      <div className="mx-auto mt-8 grid max-w-3xl gap-4 sm:mt-10 sm:grid-cols-2 sm:gap-5">
+        <div className="rounded-2xl border border-navy/10 bg-white p-5 shadow-sm transition-shadow hover:shadow-md">
           <div
             className="mb-3 h-1 w-10 rounded-full"
             style={{ background: "linear-gradient(90deg, var(--royal), var(--navy))" }}
@@ -204,9 +206,9 @@ export default function SocFlow() {
           </ul>
         </div>
 
-        <div className="group rounded-2xl border border-navy/10 bg-white p-5 shadow-sm transition-shadow hover:shadow-md sm:text-right">
+        <div className="rounded-2xl border border-navy/10 bg-white p-5 shadow-sm transition-shadow hover:shadow-md sm:text-right">
           <div
-            className="mb-3 ml-auto h-1 w-10 rounded-full"
+            className="mb-3 h-1 w-10 rounded-full sm:ml-auto"
             style={{ background: "linear-gradient(90deg, var(--cyan-deep), var(--royal))" }}
           />
           <div className="flex items-center gap-2.5 sm:flex-row-reverse">
@@ -229,7 +231,7 @@ export default function SocFlow() {
         </div>
       </div>
 
-      <p className="mt-5 text-center text-xs text-ink/45">
+      <p className="mx-auto mt-5 max-w-xl text-center text-xs leading-relaxed text-ink/45">
         Threat intel arms SIEM and SOAR with fresh indicators · SIEM hands confirmed detections to
         SOAR · SOAR reports resolution back up to the SOC.
       </p>
