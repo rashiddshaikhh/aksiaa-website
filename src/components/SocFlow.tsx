@@ -111,30 +111,8 @@ function FlowArrow({ d, delay = 0 }: { d: string; delay?: number }) {
 export default function SocFlow() {
   return (
     <div>
-      <div className="mx-auto max-w-2xl text-center">
-        <p className="text-sm leading-relaxed text-ink/55 sm:text-[15px]">
-          One detection loop, four moving parts: SIEM and SOAR trade evidence in real time, threat
-          intel primes both, and every outcome reports up into a single SOC.
-        </p>
-      </div>
-
-      {/* legend */}
-      <div className="mt-5 flex flex-col items-center justify-center gap-2 text-[11px] text-ink/50 sm:flex-row sm:gap-6 sm:text-xs">
-        <span className="flex items-center gap-1.5">
-          <span className="h-px w-6 border-t border-dashed border-navy/35" />
-          connected
-        </span>
-        <span className="flex items-center gap-1.5">
-          <span
-            className="h-0.5 w-6 rounded-full"
-            style={{ background: "linear-gradient(90deg, var(--cyan-deep), var(--navy))" }}
-          />
-          data flow
-        </span>
-      </div>
-
       {/* diagram card */}
-      <div className="mx-auto mt-6 max-w-3xl rounded-3xl border border-navy/10 bg-white/70 p-5 shadow-sm sm:p-10">
+      <div className="mx-auto mt-2 max-w-3xl rounded-3xl border border-navy/10 bg-white/70 p-5 shadow-sm sm:p-10">
         {/* percentage-positioned nodes + a matching non-uniform-scaled SVG for lines.
             Same topology at every breakpoint — only the canvas aspect ratio changes,
             so the diamond stretches taller on phones and wider on desktop. */}
