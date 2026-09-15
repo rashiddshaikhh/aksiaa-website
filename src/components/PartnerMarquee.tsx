@@ -30,13 +30,55 @@ function LogoChip({ logo }: { logo: Logo }) {
   );
 }
 
-function MarqueeRow({ group }: { group: Group }) {
+function chunkLogos(logos: Logo[], parts: number): Logo[][] {
+  const size = Math.ceil(logos.length / parts);
+  return Array.from({ length: parts }, (_, i) => logos.slice(i * size, i * size + size));
+}
+
+function MarqueeLane({
+  laneKey,
+  logos,
+  reverse,
+  duration,
+  delay,
+  paused,
+}: {
+  laneKey: string;
+  logos: Logo[];
+  reverse?: boolean;
+  duration: number;
+  delay: number;
+  paused: boolean;
+}) {
+  return (
+    <div className="marquee-row relative overflow-hidden py-1">
+      <div
+        className="marquee-track"
+        style={{
+          animationDirection: reverse ? "reverse" : "normal",
+          animationDuration: `${duration}s`,
+          animationDelay: `-${delay}s`,
+          animationPlayState: paused ? "paused" : "running",
+        }}
+      >
+        {[...logos, ...logos].map((logo, i) => (
+          <LogoChip key={`${laneKey}-${logo.name}-${i}`} logo={logo} />
+        ))}
+      </div>
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-14 bg-gradient-to-r from-white via-white/70 to-transparent sm:w-24" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-14 bg-gradient-to-l from-white via-white/70 to-transparent sm:w-24" />
+    </div>
+  );
+}
+
+function MarqueeGroup({ group }: { group: Group }) {
   const [inView, setInView] = useState(true);
   const [hovered, setHovered] = useState(false);
-  const rowRef = useRef<HTMLDivElement>(null);
+  const [clicked, setClicked] = useState(false);
+  const wrapRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const el = rowRef.current;
+    const el = wrapRef.current;
     if (!el || typeof IntersectionObserver === "undefined") return;
     const obs = new IntersectionObserver(
       ([entry]) => setInView(entry.isIntersecting),
@@ -46,7 +88,9 @@ function MarqueeRow({ group }: { group: Group }) {
     return () => obs.disconnect();
   }, []);
 
-  const running = inView && !hovered;
+  const paused = !inView || hovered || clicked;
+  const rows = group.rows ?? 1;
+  const lanes = rows > 1 ? chunkLogos(group.logos, rows) : [group.logos];
 
   return (
     <div>
@@ -58,25 +102,26 @@ function MarqueeRow({ group }: { group: Group }) {
       </div>
 
       <div
-        ref={rowRef}
-        className="marquee-row relative overflow-hidden py-1"
+        ref={wrapRef}
+        className="space-y-3"
         onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
+        onMouseLeave={() => {
+          setHovered(false);
+          setClicked(false);
+        }}
+        onClick={() => setClicked(true)}
       >
-        <div
-          className="marquee-track"
-          style={{
-            animationDirection: group.reverse ? "reverse" : "normal",
-            animationDuration: `${group.duration}s`,
-            animationPlayState: running ? "running" : "paused",
-          }}
-        >
-          {[...group.logos, ...group.logos].map((logo, i) => (
-            <LogoChip key={`${group.title}-${logo.name}-${i}`} logo={logo} />
-          ))}
-        </div>
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-14 bg-gradient-to-r from-white via-white/70 to-transparent sm:w-24" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-14 bg-gradient-to-l from-white via-white/70 to-transparent sm:w-24" />
+        {lanes.map((laneLogos, li) => (
+          <MarqueeLane
+            key={`${group.title}-lane-${li}`}
+            laneKey={`${group.title}-${li}`}
+            logos={laneLogos}
+            reverse={group.reverse}
+            duration={group.duration}
+            delay={(group.duration / lanes.length) * li}
+            paused={paused}
+          />
+        ))}
       </div>
     </div>
   );
@@ -93,7 +138,7 @@ export default function PartnerMarquee() {
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.55, delay: gi * 0.12, ease: "easeOut" }}
         >
-          <MarqueeRow group={group} />
+          <MarqueeGroup group={group} />
         </motion.div>
       ))}
     </div>

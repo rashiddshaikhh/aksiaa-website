@@ -6,7 +6,7 @@ import {
 import Hero from "@/components/Hero";
 import Section from "@/components/Section";
 import Kicker from "@/components/Kicker";
-import PartnerGrid from "@/components/PartnerGrid";
+import PartnerMarquee from "@/components/PartnerMarquee";
 import CheckPoint from "@/components/CheckPoint";
 
 const ABOUT_POINTS = [
@@ -20,7 +20,7 @@ const SERVICES = [
   {
     icon: Truck,
     title: "Distribution",
-    text: "Staying ahead of change to build channel market success - enabling resellers to deliver and customers to adopt new technologies.",
+    text: "Staying ahead of change to build channel market success — enabling resellers to deliver and customers to adopt new technologies.",
   },
   {
     icon: Network,
@@ -145,7 +145,7 @@ export default function Home() {
           </p>
         </div>
         <div className="mt-12">
-          <PartnerGrid />
+          <PartnerMarquee />
         </div>
       </Section>
 

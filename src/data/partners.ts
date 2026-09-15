@@ -4,6 +4,7 @@ export type Group = {
   subtitle: string;
   reverse?: boolean;
   duration: number;
+  rows?: number;
   logos: Logo[];
 };
 
@@ -26,6 +27,7 @@ export const PARTNER_GROUPS: Group[] = [
     subtitle: "Best-of-breed vendors across network, endpoint, identity and data security",
     reverse: true,
     duration: 52,
+    rows: 3,
     logos: [
       { name: "Juniper Networks", file: "juniper.png" },
       { name: "Cisco", file: "cisco.png" },
