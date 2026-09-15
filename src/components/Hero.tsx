@@ -31,7 +31,7 @@ export default function Hero() {
           <p className="mt-6 max-w-lg text-base leading-relaxed text-ink/65 md:text-lg">
             Aksiaa Technologies designs, distributes and manages network,
             security, cloud and IoT infrastructure for organisations that
-            can&apos;t afford downtime — backed by certified experts and a
+            can&apos;t afford downtime - backed by certified experts and a
             global partner bench.
           </p>
 

@@ -13,7 +13,6 @@ const DETAILS = [
   { icon: Mail, label: "Email", value: "sales@aksiaa.com", href: "mailto:sales@aksiaa.com" },
   { icon: Globe, label: "Website", value: "www.aksiaa.com", href: "https://aksiaa.com" },
   { icon: MapPin, label: "Headquarters", value: "Mumbai, India" },
-  { icon: Clock, label: "Response time", value: "Within 1 business day" },
 ];
 
 export default function ContactPage() {
