@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import Section from "@/components/Section";
 import Kicker from "@/components/Kicker";
 import CheckPoint from "@/components/CheckPoint";
+import HeroLogo from "@/components/HeroLogo";
 import { Truck, Network, Headset, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -54,16 +54,14 @@ export default function ServicesPage() {
             <h1 className="max-w-2xl font-display text-4xl font-semibold leading-tight text-ink md:text-5xl">
               Services that carry your infrastructure end to end.
             </h1>
+            <p className="mt-5 max-w-xl text-base leading-relaxed text-ink/65">
+              From distribution through system integration to ongoing
+              managed support — one accountable partner across the full
+              infrastructure lifecycle.
+            </p>
           </div>
           <div className="mx-auto w-full max-w-xs">
-            <Image
-              src="/images/logo-mask-bg.png"
-              alt="Aksiaa Technologies"
-              width={520}
-              height={520}
-              className="w-full"
-              priority
-            />
+            <HeroLogo />
           </div>
         </Section>
       </div>

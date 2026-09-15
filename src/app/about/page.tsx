@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Section from "@/components/Section";
 import Kicker from "@/components/Kicker";
 import CheckPoint from "@/components/CheckPoint";
+import HeroLogo from "@/components/HeroLogo";
 import {
   MapPin, Cpu, Factory, RadioTower, ShieldCheck, Lightbulb,
 } from "lucide-react";
@@ -38,16 +38,7 @@ export default function AboutPage() {
               experts and a global bench of connectivity partners.
             </p>
           </div>
-          <div className="mx-auto w-full max-w-xs">
-            <Image
-              src="/images/logo-mask-bg.png"
-              alt="Aksiaa Technologies"
-              width={520}
-              height={520}
-              className="w-full"
-              priority
-            />
-          </div>
+          <HeroLogo />
         </Section>
       </div>
 

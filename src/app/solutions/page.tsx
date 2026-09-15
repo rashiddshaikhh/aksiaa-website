@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Section from "@/components/Section";
 import Kicker from "@/components/Kicker";
+import HeroLogo from "@/components/HeroLogo";
 import SolutionTabs from "@/components/SolutionTabs";
 import SolutionsSubNav from "@/components/SolutionsSubNav";
 import PhaseHeader from "@/components/PhaseHeader";
@@ -37,14 +37,7 @@ export default function SolutionsPage() {
             </p>
           </Reveal>
           <div className="mx-auto w-full max-w-xs">
-            <Image
-              src="/images/logo-mask-bg.png"
-              alt="Aksiaa Technologies"
-              width={520}
-              height={520}
-              className="w-full"
-              priority
-            />
+            <HeroLogo />
           </div>
         </Section>
       </div>
