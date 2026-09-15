@@ -46,7 +46,7 @@ const SERVICES = [
 export default function ServicesPage() {
   return (
     <>
-      <div className="grid-backdrop border-b border-navy/10">
+      <div className="grid-backdrop border-b border-navy/10 md:flex md:min-h-[728px] md:flex-col md:justify-center">
         <Section className="py-16 md:py-20">
           <Kicker>What we do</Kicker>
           <h1 className="max-w-2xl font-display text-4xl font-semibold leading-tight text-ink md:text-5xl">

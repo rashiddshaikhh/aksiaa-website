@@ -24,7 +24,7 @@ const POINTS = [
 export default function AboutPage() {
   return (
     <>
-      <div className="grid-backdrop border-b border-navy/10">
+      <div className="grid-backdrop border-b border-navy/10 md:flex md:min-h-[728px] md:flex-col md:justify-center">
         <Section className="grid gap-12 py-16 md:grid-cols-[1.1fr_0.9fr] md:items-center md:py-24">
           <div>
             <Kicker>About Aksiaa</Kicker>

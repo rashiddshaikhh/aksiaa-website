@@ -8,7 +8,7 @@ const stat = { value: "5+", label: "years delivering IT infrastructure" };
 
 export default function Hero() {
   return (
-    <div className="relative overflow-hidden grid-backdrop">
+    <div className="relative overflow-hidden grid-backdrop md:flex md:min-h-[728px] md:flex-col md:justify-center">
       <div className="mx-auto grid max-w-6xl gap-16 px-6 pb-20 pt-16 md:grid-cols-[1.1fr_0.9fr] md:pb-28 md:pt-24">
         <motion.div
           initial={{ opacity: 0, y: 18 }}

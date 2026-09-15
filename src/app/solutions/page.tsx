@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 export default function SolutionsPage() {
   return (
     <>
-      <div className="grid-backdrop border-b border-navy/10">
+      <div className="grid-backdrop border-b border-navy/10 md:flex md:min-h-[728px] md:flex-col md:justify-center">
         <Section className="py-16 md:py-20">
           <Reveal>
             <Kicker>Our solutions</Kicker>
