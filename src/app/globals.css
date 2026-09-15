@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "react-phone-number-input/style.css";
 
 :root {
   --ink: #0a1128;
@@ -17,8 +18,20 @@
   --color-royal: var(--royal);
   --color-cyan: var(--cyan);
   --color-cyan-deep: var(--cyan-deep);
-  --font-display: -apple-system, "Segoe UI Semibold", "Helvetica Neue", Arial, sans-serif;
-  --font-body: -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+
+  --font-display:
+    -apple-system,
+    "Segoe UI Semibold",
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+
+  --font-body:
+    -apple-system,
+    "Segoe UI",
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
 }
 
 * {
@@ -35,7 +48,11 @@ body {
   font-family: var(--font-body), Arial, Helvetica, sans-serif;
 }
 
-h1, h2, h3, h4, .font-display {
+h1,
+h2,
+h3,
+h4,
+.font-display {
   font-family: var(--font-display);
   letter-spacing: -0.02em;
 }
@@ -51,7 +68,9 @@ h1, h2, h3, h4, .font-display {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *:not(.marquee-track), *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
@@ -59,10 +78,12 @@ h1, h2, h3, h4, .font-display {
   }
 }
 
+/* Marquee */
+
 .marquee-track {
   display: flex;
   width: max-content;
-  animation: marquee 30s linear infinite;
+  animation: marquee 32s linear infinite;
 }
 
 .marquee-row:hover .marquee-track {
@@ -70,17 +91,174 @@ h1, h2, h3, h4, .font-display {
 }
 
 @keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
 }
 
+/* Gradient seam */
+
 .seam {
-  background: linear-gradient(100deg, var(--cyan-deep) 0%, var(--royal) 45%, var(--navy) 100%);
+  background: linear-gradient(
+    100deg,
+    var(--cyan-deep) 0%,
+    var(--royal) 45%,
+    var(--navy) 100%
+  );
 }
+
+/* Grid background */
 
 .grid-backdrop {
   background-image:
     linear-gradient(var(--line) 1px, transparent 1px),
     linear-gradient(90deg, var(--line) 1px, transparent 1px);
   background-size: 44px 44px;
+}
+
+/* Phone field */
+
+.phone-field {
+  width: 100%;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.phone-field .PhoneInput {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* Country selector */
+
+.phone-field .PhoneInputCountry {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-right: 8px;
+}
+
+.phone-field .PhoneInputCountry,
+.phone-field .PhoneInputCountry:focus,
+.phone-field .PhoneInputCountry:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Country selector dropdown */
+
+.phone-field .PhoneInputCountrySelect {
+  border: 0 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  cursor: pointer;
+}
+
+.phone-field .PhoneInputCountrySelect:focus,
+.phone-field .PhoneInputCountrySelect:focus-visible {
+  border: 0 !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Country flag */
+
+.phone-field .PhoneInputCountryIcon {
+  flex-shrink: 0;
+}
+
+.phone-field .PhoneInputCountryIconImg {
+  display: block;
+}
+
+.phone-field .PhoneInputCountrySelectArrow {
+  margin-left: 4px;
+}
+
+/* Phone input */
+
+.phone-field .PhoneInputInput {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+  border: 0 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  color: var(--ink);
+  font-family:
+    -apple-system,
+    "Segoe UI",
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.phone-field .PhoneInputInput:focus,
+.phone-field .PhoneInputInput:focus-visible,
+.phone-field .PhoneInputInput:active {
+  border: 0 !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Placeholder */
+
+.phone-field .PhoneInputInput::placeholder {
+  color: rgba(10, 17, 40, 0.45);
+  opacity: 1;
+}
+
+/* Remove focus box from entire phone field */
+
+.phone-field:focus,
+.phone-field:focus-within {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Extra protection against blue focus outline */
+
+.phone-field input:focus,
+.phone-field input:focus-visible,
+.phone-field select:focus,
+.phone-field select:focus-visible,
+.phone-field button:focus,
+.phone-field button:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Prevent tap highlight on mobile */
+
+.phone-field input,
+.phone-field select,
+.phone-field button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Mobile */
+
+@media (max-width: 640px) {
+  .phone-field {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .phone-field .PhoneInputInput {
+    font-size: 0.875rem;
+  }
+
+  .phone-field .PhoneInputCountry {
+    margin-right: 6px;
+  }
 }
