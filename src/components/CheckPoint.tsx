@@ -8,7 +8,7 @@ type CheckPointProps = {
 
 export default function CheckPoint({ icon: Icon = Check, title, text }: CheckPointProps) {
   return (
-    <div className="flex items-start gap-3 rounded-lg border border-navy/10 bg-white px-4 py-3.5">
+    <div className="flex min-h-[76px] items-center gap-3 rounded-lg border border-navy/10 bg-white px-4 py-3.5">
       <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-paper text-cyan-deep">
         <Icon size={18} strokeWidth={1.75} />
       </div>
