@@ -26,7 +26,7 @@ export const PARTNER_GROUPS: Group[] = [
     title: "Networking & Security Product Partners",
     subtitle: "Best-of-breed vendors across network, endpoint, identity and data security",
     reverse: true,
-    duration: 40,
+    duration: 38,
     rows: 3,
     logos: [
       { name: "Juniper Networks", file: "juniper.png" },

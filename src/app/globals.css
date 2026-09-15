@@ -62,7 +62,7 @@ h1, h2, h3, h4, .font-display {
 .marquee-track {
   display: flex;
   width: max-content;
-  animation: marquee 32s linear infinite;
+  animation: marquee 30s linear infinite;
 }
 
 .marquee-row:hover .marquee-track {
