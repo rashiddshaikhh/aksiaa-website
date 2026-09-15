@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Section from "@/components/Section";
 import Kicker from "@/components/Kicker";
 import SolutionTabs from "@/components/SolutionTabs";
@@ -24,7 +25,7 @@ export default function SolutionsPage() {
   return (
     <>
       <div className="grid-backdrop border-b border-navy/10 md:flex md:min-h-[728px] md:flex-col md:justify-center">
-        <Section className="py-16 md:py-20">
+        <Section className="grid gap-12 py-16 md:grid-cols-[1.1fr_0.9fr] md:items-center md:py-20">
           <Reveal>
             <Kicker>Our solutions</Kicker>
             <h1 className="max-w-2xl font-display text-4xl font-semibold leading-tight text-ink md:text-5xl">
@@ -35,6 +36,16 @@ export default function SolutionsPage() {
               frameworks we run on every engagement.
             </p>
           </Reveal>
+          <div className="mx-auto w-full max-w-xs">
+            <Image
+              src="/images/logo-mask-bg.png"
+              alt="Aksiaa Technologies"
+              width={520}
+              height={520}
+              className="w-full"
+              priority
+            />
+          </div>
         </Section>
       </div>
 
