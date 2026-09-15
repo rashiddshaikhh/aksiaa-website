@@ -5,7 +5,7 @@ import ContactForm from "@/components/ContactForm";
 import { Mail, MapPin, Globe, Clock } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Contact | Aksiaa Technologies",
+  title: "Aksiaa Technologies | Contact",
   description: "Get in touch with Aksiaa Technologies — sales@aksiaa.com, Mumbai, India.",
 };
 

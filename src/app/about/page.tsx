@@ -8,7 +8,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "About | Aksiaa Technologies",
+  title: "Aksiaa Technologies | About",
   description: "Aksiaa Technologies - a Mumbai-based systems integrator and distributor of network, security, cloud and IoT infrastructure.",
 };
 

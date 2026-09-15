@@ -7,7 +7,7 @@ import HeroLogo from "@/components/HeroLogo";
 import { Truck, Network, Headset, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Services | Aksiaa Technologies",
+  title: "Aksiaa Technologies | Services",
   description: "Distribution, system integration and managed services from Aksiaa Technologies.",
 };
 
