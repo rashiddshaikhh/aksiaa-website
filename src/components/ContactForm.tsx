@@ -22,7 +22,7 @@ export default function ContactForm() {
         <CheckCircle2 size={38} className="text-cyan-deep" />
         <h3 className="mt-4 font-display text-xl font-semibold text-ink">Message sent</h3>
         <p className="mt-2 max-w-xs text-sm text-ink/60">
-          Thanks for reaching out — our team will get back to you at{" "}
+          Thanks for reaching out - our team will get back to you at{" "}
           <span className="font-medium text-navy">sales@aksiaa.com</span> shortly.
         </p>
       </div>

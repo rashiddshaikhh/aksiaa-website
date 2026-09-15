@@ -53,10 +53,10 @@ export default function SolutionsPage() {
         <Reveal>
           <Kicker>Network</Kicker>
           <h2 className="font-display text-3xl font-semibold text-ink md:text-4xl">
-            Robust network infra
+            Robust Network Infra
           </h2>
           <p className="mt-3 max-w-xl text-sm leading-relaxed text-ink/60">
-            The switches, routers and wireless that carry every other workload —
+            The switches, routers and wireless that carry every other workload -
             sized for real traffic, segmented for risk, and monitored so
             problems surface before users notice.
           </p>
@@ -82,10 +82,10 @@ export default function SolutionsPage() {
         <Reveal>
           <Kicker>Security</Kicker>
           <h2 className="font-display text-3xl font-semibold text-ink md:text-4xl">
-            Evolve in security with us
+            Evolve in Security with us
           </h2>
           <p className="mt-3 max-w-xl text-sm leading-relaxed text-ink/60">
-            Perimeter, web, identity and device — each covered by dedicated
+            Perimeter, web, identity and device - each covered by dedicated
             tooling, tied together through a shared SIEM/SOAR so nothing sits
             in a silo waiting to be noticed.
           </p>
@@ -130,11 +130,11 @@ export default function SolutionsPage() {
         <Reveal>
           <Kicker>Cloud</Kicker>
           <h2 className="font-display text-3xl font-semibold text-ink md:text-4xl">
-            Evolve in cloud with us
+            Evolve in Cloud with us
           </h2>
           <p className="mt-3 max-w-xl text-sm leading-relaxed text-ink/60">
             Cloud-agnostic by design. We run workloads on whichever platform
-            fits the job — AWS, Azure, Google Cloud or on-prem — and re-platform
+            fits the job - AWS, Azure, Google Cloud or on-prem - and re-platform
             them again if the economics change.
           </p>
         </Reveal>
@@ -180,7 +180,7 @@ export default function SolutionsPage() {
             Evolve in IoT with us
           </h2>
           <p className="mt-3 max-w-xl text-sm leading-relaxed text-ink/60">
-            From a single sensor to a citywide rollout — connectivity,
+            From a single sensor to a citywide rollout - connectivity,
             hardware and the application layer, engineered as one stack
             instead of three separate vendors to coordinate.
           </p>
@@ -214,7 +214,7 @@ export default function SolutionsPage() {
         <Reveal>
           <Kicker>Business continuity</Kicker>
           <h2 className="font-display text-3xl font-semibold text-ink md:text-4xl">
-            Data backup — BCP &amp; DR
+            Data backup - BCP &amp; DR
           </h2>
           <p className="mt-3 max-w-xl text-sm leading-relaxed text-ink/60">
             Prevent downtime with near-zero RPOs and RTOs for all users and applications.
@@ -243,11 +243,11 @@ export default function SolutionsPage() {
         <Reveal>
           <Kicker>Cloud security posture</Kicker>
           <h2 className="font-display text-3xl font-semibold text-ink md:text-4xl">
-            Complete cloud &amp; security posture
+            Complete Cloud &amp; Security Posture
           </h2>
           <p className="mt-3 max-w-xl text-sm leading-relaxed text-ink/60">
             One pane for cloud misconfigurations, identity risk and workload
-            vulnerabilities — so security keeps pace with how fast the cloud
+            vulnerabilities - so security keeps pace with how fast the cloud
             footprint actually grows.
           </p>
         </Reveal>
@@ -276,11 +276,11 @@ export default function SolutionsPage() {
         <Reveal>
           <Kicker>Security operations</Kicker>
           <h2 className="font-display text-3xl font-semibold text-ink md:text-4xl">
-            Security operations center
+            Security Operations Center
           </h2>
           <p className="mt-3 max-w-xl text-sm leading-relaxed text-ink/60">
             Round-the-clock monitoring backed by real playbooks, not just an
-            alert inbox — analysts who can tell a false positive from an
+            alert inbox - analysts who can tell a false positive from an
             actual incident.
           </p>
         </Reveal>
@@ -333,11 +333,11 @@ export default function SolutionsPage() {
         <Reveal>
           <Kicker>Intelligence-driven services</Kicker>
           <h2 className="font-display text-3xl font-semibold text-ink md:text-4xl">
-            Data security
+            Data Security
           </h2>
           <p className="mt-3 max-w-xl text-sm leading-relaxed text-ink/60">
             Testing, assessments and compliance work that stays current with
-            how the threat landscape actually moves — not a once-a-year
+            how the threat landscape actually moves - not a once-a-year
             checkbox exercise.
           </p>
         </Reveal>

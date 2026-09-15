@@ -56,7 +56,7 @@ export default function ServicesPage() {
             </h1>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-ink/65">
               From distribution through system integration to ongoing
-              managed support — one accountable partner across the full
+              managed support - one accountable partner across the full
               infrastructure lifecycle.
             </p>
           </div>
@@ -96,7 +96,7 @@ export default function ServicesPage() {
             Not sure which service fits?
           </h2>
           <p className="max-w-md text-sm text-ink/60">
-            Tell us about your current setup and where you want to get to —
+            Tell us about your current setup and where you want to get to -
             we&apos;ll map it to the right mix of distribution, integration or
             managed support.
           </p>

@@ -9,7 +9,7 @@ import {
 
 export const metadata: Metadata = {
   title: "About | Aksiaa Technologies",
-  description: "Aksiaa Technologies — a Mumbai-based systems integrator and distributor of network, security, cloud and IoT infrastructure.",
+  description: "Aksiaa Technologies - a Mumbai-based systems integrator and distributor of network, security, cloud and IoT infrastructure.",
 };
 
 const POINTS = [
@@ -34,7 +34,7 @@ export default function AboutPage() {
             <p className="mt-6 max-w-lg text-base leading-relaxed text-ink/65">
               Aksiaa Technologies Pvt. Ltd. distributes and integrates network,
               security, cloud and IoT products for organisations that need
-              infrastructure they can rely on — supported by certified
+              infrastructure they can rely on - supported by certified
               experts and a global bench of connectivity partners.
             </p>
           </div>
@@ -53,7 +53,7 @@ export default function AboutPage() {
       <Section className="bg-white/60">
         <div className="seam rounded-2xl px-8 py-12 text-center sm:px-16">
           <p className="mx-auto max-w-2xl font-display text-xl font-medium leading-snug text-white sm:text-2xl">
-            &ldquo;We stay ahead of change to build channel market success —
+            &ldquo;We stay ahead of change to build channel market success -
             enabling resellers to deliver, and customers to adopt, new
             technology with confidence.&rdquo;
           </p>

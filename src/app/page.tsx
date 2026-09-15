@@ -20,7 +20,7 @@ const SERVICES = [
   {
     icon: Truck,
     title: "Distribution",
-    text: "Staying ahead of change to build channel market success — enabling resellers to deliver and customers to adopt new technologies.",
+    text: "Staying ahead of change to build channel market success - enabling resellers to deliver and customers to adopt new technologies.",
   },
   {
     icon: Network,
@@ -47,7 +47,7 @@ export default function Home() {
       <Hero />
 
       <div className="border-y border-navy/10 bg-paper">
-        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-4 px-6 py-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-4 px-6 py-8 sm:grid-cols-2">
           {ABOUT_POINTS.map(({ icon, text }) => (
             <CheckPoint key={text} icon={icon} text={text} />
           ))}

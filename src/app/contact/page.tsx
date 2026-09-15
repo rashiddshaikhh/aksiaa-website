@@ -27,8 +27,10 @@ export default function ContactPage() {
           </h1>
           <p className="mt-5 max-w-sm text-base leading-relaxed text-ink/65">
             Whether it&apos;s a network refresh, a security review, a cloud
-            migration or an IoT rollout — tell us where you are today.
+            migration or an IoT rollout - tell us where you are today.
           </p>
+
+
 
           <div className="mt-10 space-y-5">
             {DETAILS.map(({ icon: Icon, label, value, href }) => (
