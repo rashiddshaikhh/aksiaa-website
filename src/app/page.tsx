@@ -7,6 +7,7 @@ import Hero from "@/components/Hero";
 import Section from "@/components/Section";
 import Kicker from "@/components/Kicker";
 import PartnerGrid from "@/components/PartnerGrid";
+import CheckPoint from "@/components/CheckPoint";
 
 const ABOUT_POINTS = [
   { icon: MapPin, text: "Headquartered in Mumbai, India" },
@@ -45,13 +46,10 @@ export default function Home() {
     <>
       <Hero />
 
-      <div className="border-y border-navy/10 bg-white">
-        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-6 px-6 py-8 sm:grid-cols-4">
-          {ABOUT_POINTS.map(({ icon: Icon, text }) => (
-            <div key={text} className="flex items-start gap-3">
-              <Icon size={18} className="mt-0.5 shrink-0 text-cyan-deep" strokeWidth={1.75} />
-              <p className="text-xs leading-snug text-ink/65 sm:text-[13px]">{text}</p>
-            </div>
+      <div className="border-y border-navy/10 bg-paper">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-4 px-6 py-8 sm:grid-cols-2 lg:grid-cols-4">
+          {ABOUT_POINTS.map(({ icon, text }) => (
+            <CheckPoint key={text} icon={icon} text={text} />
           ))}
         </div>
       </div>

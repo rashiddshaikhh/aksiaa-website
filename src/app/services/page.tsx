@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Section from "@/components/Section";
 import Kicker from "@/components/Kicker";
-import { Truck, Network, Headset, ArrowRight, Check } from "lucide-react";
+import CheckPoint from "@/components/CheckPoint";
+import { Truck, Network, Headset, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Services | Aksiaa Technologies",
@@ -71,10 +72,7 @@ export default function ServicesPage() {
             </div>
             <div className={`flex flex-col justify-center gap-3 ${i % 2 === 1 ? "[direction:ltr]" : ""}`}>
               {points.map((p) => (
-                <div key={p} className="flex items-center gap-3 rounded-lg bg-paper px-4 py-3">
-                  <Check size={16} className="shrink-0 text-cyan-deep" />
-                  <span className="text-sm text-ink/75">{p}</span>
-                </div>
+                <CheckPoint key={p} text={p} />
               ))}
             </div>
           </div>

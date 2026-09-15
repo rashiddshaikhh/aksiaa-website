@@ -3,7 +3,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowUpRight, ArrowRight, CheckCircle2, Network, ShieldCheck, CloudCog, RadioTower, LucideIcon } from "lucide-react";
+import { ArrowUpRight, ArrowRight, Network, ShieldCheck, CloudCog, RadioTower, LucideIcon } from "lucide-react";
+import CheckPoint from "@/components/CheckPoint";
 
 type Tab = {
   key: string;
@@ -218,14 +219,9 @@ export default function SolutionTabs() {
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: 0.05 + i * 0.045, ease: "easeOut" }}
-                  className="group flex items-start gap-2.5 rounded-lg px-3 py-2.5 text-sm text-ink/75 transition-all duration-200 hover:translate-x-1 hover:bg-paper"
+                  className="transition-transform duration-200 hover:translate-x-1"
                 >
-                  <CheckCircle2
-                    size={16}
-                    strokeWidth={1.75}
-                    className="mt-0.5 shrink-0 text-cyan-deep transition-transform duration-200 group-hover:scale-110"
-                  />
-                  {item}
+                  <CheckPoint text={item} />
                 </motion.li>
               ))}
             </ul>

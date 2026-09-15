@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Section from "@/components/Section";
 import Kicker from "@/components/Kicker";
+import CheckPoint from "@/components/CheckPoint";
 import {
   MapPin, Cpu, Factory, RadioTower, ShieldCheck, Lightbulb,
 } from "lucide-react";
@@ -51,17 +52,9 @@ export default function AboutPage() {
       </div>
 
       <Section>
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {POINTS.map(({ icon: Icon, title, text }) => (
-            <div key={title} className="flex gap-4">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-navy/5 text-navy">
-                <Icon size={22} strokeWidth={1.75} />
-              </div>
-              <div>
-                <h3 className="font-display text-base font-semibold text-ink">{title}</h3>
-                <p className="mt-1 text-sm leading-relaxed text-ink/60">{text}</p>
-              </div>
-            </div>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {POINTS.map(({ icon, title, text }) => (
+            <CheckPoint key={title} icon={icon} title={title} text={text} />
           ))}
         </div>
       </Section>
