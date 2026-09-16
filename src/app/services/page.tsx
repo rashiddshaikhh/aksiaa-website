@@ -60,7 +60,7 @@ export default function ServicesPage() {
               infrastructure lifecycle.
             </p>
           </div>
-          <div className="mx-auto w-full max-w-xs">
+          <div className="mx-auto hidden w-full max-w-xs md:block">
             <HeroLogo />
           </div>
         </Section>

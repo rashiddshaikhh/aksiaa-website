@@ -36,7 +36,7 @@ export default function SolutionsPage() {
               frameworks we run on every engagement.
             </p>
           </Reveal>
-          <div className="mx-auto w-full max-w-xs">
+          <div className="mx-auto hidden w-full max-w-xs md:block">
             <HeroLogo />
           </div>
         </Section>
