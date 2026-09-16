@@ -66,24 +66,20 @@ h4,
   outline: 2px solid var(--cyan-deep);
   outline-offset: 3px;
 }
-
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  *:not(.marquee-track), *::before, *::after {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
 }
-
 /* Marquee */
 
 .marquee-track {
   display: flex;
   width: max-content;
-  animation: marquee 32s linear infinite;
+  animation: marquee 24s linear infinite;
 }
 
 .marquee-row:hover .marquee-track {

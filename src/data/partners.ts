@@ -12,7 +12,7 @@ export const PARTNER_GROUPS: Group[] = [
   {
     title: "Cloud Agnostic Approach",
     subtitle: "Run and manage workloads on the platform that fits, without lock-in",
-    duration: 30,
+    duration: 22,
     logos: [
       { name: "Acronis", file: "acronis.png" },
       { name: "AWS", file: "aws.png" },
@@ -26,7 +26,7 @@ export const PARTNER_GROUPS: Group[] = [
     title: "Networking & Security Product Partners",
     subtitle: "Best-of-breed vendors across network, endpoint, identity and data security",
     reverse: true,
-    duration: 38,
+    duration: 28,
     rows: 3,
     logos: [
       { name: "Juniper Networks", file: "juniper.png" },
