@@ -15,11 +15,7 @@ export const PARTNER_GROUPS: Group[] = [
     duration: 22,
     logos: [
       { name: "Acronis", file: "acronis.png" },
-      { name: "AWS", file: "aws.png" },
-      { name: "Microsoft Azure", file: "azure.png" },
-      { name: "Google Cloud", file: "google-cloud.png" },
-      { name: "Commvault", file: "commvault.png" },
-      { name: "Metallic", file: "metallic.png" },
+
     ],
   },
   {
