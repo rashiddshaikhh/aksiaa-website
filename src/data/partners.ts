@@ -34,7 +34,8 @@ export const PARTNER_GROUPS: Group[] = [
       { name: "Cisco", file: "cisco.png" },
       { name: "CrowdStrike", file: "crowdstrike.png" },
       { name: "Aruba", file: "aruba.png" },
-
+      { name: "Palo Alto Networks", file: "paloalto.png" },
+      { name: "SentinelOne", file: "sentinelone.png" },
       { name: "Sophos", file: "sophos.png" },
       { name: "Symantec", file: "symantec.png" },
       { name: "Versa Networks", file: "versa.png" },
